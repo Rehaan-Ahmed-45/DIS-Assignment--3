@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vaccine Registration</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>COVID Vaccine Registration</h1>
+    <form id="registrationForm">
+        <label for="patientName">Patient Name:</label>
+        <input type="text" id="patientName" name="patientName" pattern="[A-Za-z\s]+" title="Name should only contain alphabets and spaces." required oninput="validateInput(this, 'email')">
+
+        <label for="email">Email ID:</label>
+        <input type="email" id="email" name="email" required pattern=".*@.*" oninput="validateInput(this, 'phone')" disabled>
+
+        <label for="phone">Phone Number:</label>
+        <input type="tel" id="phone" name="phone" pattern="\d*" title="Phone number should only contain digits." required oninput="validateInput(this, 'address')" disabled>
+
+        <label for="address">Address:</label>
+        <input type="text" id="address" name="address" required oninput="validateInput(this, 'vaccineBrand')" disabled>
+        
+        <label for="vaccineBrand">Vaccine Brand:</label>
+        <select id="vaccineBrand" name="vaccineBrand" oninput="validateInput(this, 'timeSlot')" disabled>
+            <option value="">Select a brand</option>
+            <option value="Pfizer">Pfizer</option>
+            <option value="Moderna">Moderna</option>
+            <option value="AstraZeneca">AstraZeneca</option>
+        </select>
+
+        <label for="timeSlot">Time Slot:</label>
+        <input type="time" id="timeSlot" name="timeSlot" required disabled>
+        
+        <button type="button" onclick="validateForm()">Register</button>
+
+    </form>
+
+    <div id="result"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
